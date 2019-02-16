@@ -1,0 +1,11 @@
+@mixin hoverChangeStyle($colorText, $colorBackground) {
+  color: $colorText;
+  background-color: $colorBackground;
+}
+
+@mixin placeholder {
+  &::-webkit-input-placeholder {@content};
+  &::-moz-placeholder {@content};
+  &::-moz-placeholder { @content; }
+  &:-ms-input-placeholder { @content; }
+}

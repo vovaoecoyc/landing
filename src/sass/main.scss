@@ -1,0 +1,508 @@
+@import '_mixins';
+@import '_ui';
+
+/* variables block */
+$mainWidth: 1170px;
+
+$colorWhite: #ffffff;
+
+$colorText: #3c3d42;
+
+$footerBackground: #2d312f;
+/* ./ variables block */
+
+@font-face {
+  font-size: 14px;
+  font-family: 'Raleway', sans-serif;
+  src: url(https://fonts.googleapis.com/css?family=Raleway);
+}
+
+%flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+%flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+%setupForBackBlock {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+%resetUlStyles {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+}
+
+section {
+  width: 100%;
+  background-color: $colorWhite;
+}
+
+body > section:nth-child(even) {
+  background-color: #f2f9fe;
+}
+
+header {
+  background-color: $colorWhite;
+}
+
+.Header {
+  @extend %flex-row;
+  margin: auto;
+  justify-content: space-between;
+  align-items: center;
+  width: $mainWidth;
+  height: 110px;
+}
+
+.logo {
+  width: 143px;
+  height: 26px;
+}
+
+.Top-Menu {
+  @extend %flex-row;
+  @extend %resetUlStyles;
+  background-color: $colorWhite;
+  padding: 0 32px 0;
+
+  &__menuElement {
+    font-size: 16px;
+    cursor: pointer;
+    color: $colorText;
+
+    &:hover {
+      @include hoverChangeStyle($colorWhite, $colorText);
+    }
+
+    &_current {
+      cursor: pointer;
+      color: #be0b0b
+    }
+
+    &_current:hover {
+      @include hoverChangeStyle($colorWhite, $colorText)
+    }
+
+    &:not(:first-child) {
+      margin-left: 32px;
+    }
+  }
+}
+
+.Header-left, .Header-right {
+  @extend %flex-row;
+}
+
+.Header-left {
+  nav {
+    @extend %flex-row;
+    align-items: center;
+  }
+}
+
+.Header-right {
+  & > :not(:first-child) {
+    margin-left: 50px;
+  }
+}
+
+.Information {
+  @extend %flex-row;
+  align-items: center;
+
+  &__image {
+    width: 18px;
+    height: 15px;
+  }
+
+  &__text {
+    margin-left: 15px;
+    color: $colorText;
+    font-size: 18px;
+  }
+}
+
+.Banner {
+  width: 100%;
+  height: 730px;
+
+  &__item {
+    @extend %setupForBackBlock;
+    width: 100%;
+    height: inherit;
+  }
+
+  &__item-content {
+    @extend %flex-row;
+    margin: auto;
+    padding: 180px 0 0;
+    justify-content: flex-start;
+    width: $mainWidth;
+  }
+
+  &__item-information {
+    @extend %flex-column;
+    color: $colorWhite;
+    width: 430px;
+
+    &_title {
+      font-size: 36px;
+      font-weight: bold;
+    }
+
+    &_sub-title {
+      font-size: 36px;
+    }
+
+    &_text {
+      font-size: inherit;
+      line-height: 24px;
+      padding: 45px 0 55px;
+    }
+  }
+}
+
+.Block-first, .Block-second, .Block-gallery, .Block-about-us, .Block-subscribe {
+  width: $mainWidth;
+  margin: auto;
+}
+
+.Block-first {
+  padding-top: 103px;
+
+  & > :not(:first-child) {
+    margin-top: 125px;
+  }
+}
+
+.Information-header {
+  @extend %flex-column;
+  width: 750px;;
+  margin: auto;
+  color: $colorText;
+  text-align: center;
+
+  &__title {
+    font-size: 36px;
+    font-weight: bold;
+  }
+
+  &__text {
+    margin: 32px 0 0;
+    font-size: 16px;
+    line-height: 24px;
+  }
+}
+
+.Information-content {
+  @extend %flex-row;
+  padding-bottom: 150px;
+}
+
+.Information-left-block {
+  width: 355px;
+  padding: 0 0 0 30px;
+}
+
+.Side-menu {
+  @extend %resetUlStyles;
+  width: 100%;
+
+  &__item {
+    @extend %flex-row;
+    width: 100%;
+    height: 80px;
+    align-items: center;
+    font-size: 20px;
+    margin-left: -10px;
+
+    &_current {
+      border-right: 10px solid #5dca88;
+      padding-left: 0;
+    }
+  }
+
+  &__item:not(:first-child) {
+    margin-top: 73px;
+  }
+
+  &__item-text {
+    cursor: pointer;
+    opacity: 0.6;
+    margin-left: 40px;
+
+    &_current {
+      opacity: 1;
+    }
+  }
+}
+
+.Information-right-block {
+  @extend %flex-column;
+  width: calc(#{$mainWidth} - 355px);
+
+  &__image {
+    width: 208px;
+    height: 175px;
+    margin: 45px auto 80px;
+  }
+
+  &__title {
+    font-size: 24px;
+    margin: 82px 0 32px;
+    padding-left: 143px;
+  }
+
+  &__text {
+    font-size: 16px;
+    line-height: 24px;
+    opacity: 0.6;
+    padding-left: 143px;
+  }
+}
+
+.Block-second {
+  padding: 78px 0 78px;
+  @extend %flex-row;
+}
+
+.Block-description {
+  width: 410px;
+  padding-top: 160px;
+  @extend %flex-column;
+
+  &__title {
+    font-size: 36px;
+    color: #5dca88;
+  }
+
+  &__line {
+    margin: 20px 0 45px;
+    padding: 0;
+    width: 105px;
+    height: 2px;
+    background-color: #949c9c;
+  }
+
+  &__sub-title {
+    font-size: 36px;
+    color: $colorText;
+  }
+
+  &__text {
+    margin-top: 50px;
+    font-size: 16px;
+    color: $colorText;
+    line-height: 24px;
+  }
+
+  &__button {
+    margin-top: 80px;
+    color: #636c6c;
+    border-color: #aab2b5;
+  }
+}
+
+.Block-second-right {
+  margin: auto;
+}
+
+.Block-gallery {
+  padding: 100px 0 0;
+}
+
+.Block-gallery-content {
+  @extend %flex-column;
+  position: relative;
+  margin: auto;
+  padding: 85px 0 125px 30px;
+
+  &__item {
+    @extend %flex-column;
+    justify-content: center;
+    align-items: center;
+    width: 370px !important;
+  }
+
+  &__item-description {
+    text-align: center;
+    margin: 46px;
+    font-size: 14px;
+    line-height: 24px;
+  }
+
+  &__item-image {
+    margin: auto;
+  }
+}
+
+.Prev-arrow, .Next-arrow {
+  position: absolute;
+  top: 285px;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.Prev-arrow {
+  left: -50px;
+}
+
+.Next-arrow {
+  right: -50px;
+}
+
+.Block-third {
+  @extend %flex-row;
+  width: $mainWidth;
+  margin: auto;
+  padding: 80px 0;
+
+  &__description {
+    margin: auto;
+  }
+}
+
+.Block-about-us {
+  padding: 100px 0 0 0;
+
+  &__item {
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__title {
+    font-size: 36px;
+    line-height: 24px;
+  }
+
+  &__image {
+    margin: 37px 0 46px;
+  }
+
+  &__quote {
+    font-size: 24px;
+    line-height: 24px;
+    quotes: "\201c", "\201d";
+  }
+
+  &__publisher {
+    font-size: 24px;
+    line-height: 24px;
+    color: #5dca88;
+    margin: 28px 0 40px;
+  }
+
+  &__navigation {
+    padding: 0 0 115px 0;
+
+    ul {
+      @extend %resetUlStyles;
+      @extend %flex-row;
+      justify-content: center;
+
+      li {
+        width: 11px;
+        height: 11px;
+        border-radius: 5px;
+        background-color: #8c9494;
+      }
+
+      li.slick-active {
+        background-color: #5dca88;
+      }
+
+      li:not(:first-child) {
+        margin-left: 10px;
+      }
+    }
+  }
+}
+
+.Block-subscribe {
+  @extend %flex-column;
+  padding: 80px 0 120px 0;
+}
+
+.Block-subscribe-header {
+  @extend %flex-row;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 55px;
+
+  &__title {
+    font-size: 36px;
+    line-height: 24px;
+    color: #8c9494;
+    margin-left: 20px;
+  }
+}
+
+.Block-subscribe-form {
+  @extend %flex-row;
+  justify-content: center;
+  position: relative;
+
+  &__button {
+    position: absolute;
+    right: 188px;
+    font-size: 20px;
+    line-height: 24px;
+    font-weight: bold;
+
+    &:hover {
+      @include hoverChangeStyle($colorText, #5dca88);
+    }
+  }
+}
+
+.Footer {
+  @extend %flex-column;
+  align-items: center;
+  width: 100%;
+  background-color: $footerBackground;
+  padding: 76px 0 50px;
+
+  &__title {
+    color: #8c9494;
+    font-size: 24px;
+    line-height: 24px;
+  }
+}
+
+.Footer-icons {
+  @extend %flex-row;
+    justify-content: center;
+    margin: 35px 0 70px;
+
+    & > :not(:first-child) {
+      margin-left: 15px;
+    }
+}
+
+.Footer-menu {
+  @extend %resetUlStyles;
+  @extend %flex-row;
+
+  &__item {
+    color: #8c9494;
+    font-size: 14px;
+    line-height: 24px;
+  }
+
+  & > :not(:first-child) {
+    margin-left: 20px;
+  }
+}

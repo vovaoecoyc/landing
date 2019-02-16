@@ -1,0 +1,45 @@
+$colorGray: #93b3b8;
+$colorWhite: #ffffff;
+$colorBlack: #000000;
+$subscribeButtonColor: #5dca88; 
+
+.Button {
+  width: 240px;
+  height: 60px;
+  border-radius: 25px;
+  border: 3px solid $colorGray;
+  color: $colorWhite;
+  background: none;
+  cursor: pointer;
+  font-weight: bold;
+  outline: none;
+
+  &:hover {
+    @include hoverChangeStyle($colorBlack, $colorGray);
+  }
+}
+
+.Input-subscribe {
+  width: 770px;
+  height: 60px;
+  border-radius: 30px;
+  margin: 0;
+  padding: 0 0 0 21px;
+  outline: none;
+  border: 2px solid $colorGray;
+  
+  @include placeholder {
+    font-size: 14px;
+    line-height: 24px;
+  }
+}
+
+.Button-subscribe {
+  width: 170px;
+  height: 64px;
+  border-radius: 30px;
+  background-color: $subscribeButtonColor;
+  color: $colorWhite;
+  border: none;
+  cursor: pointer;
+}

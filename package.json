@@ -1,0 +1,32 @@
+{
+  "name": "webpack-custom",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "vovaoecoyc",
+  "license": "MIT",
+  "scripts": {
+    "test": "echo Test",
+    "dev": "webpack-dev-server --mode development --open",
+    "build": "webpack --mode production"
+  },
+  "devDependencies": {
+    "css-loader": "^2.1.0",
+    "extract-text-webpack-plugin": "^4.0.0-beta.0",
+    "path": "^0.12.7",
+    "style-loader": "^0.23.1",
+    "webpack": "^4.29.3",
+    "webpack-cli": "^3.2.3",
+    "webpack-dev-server": "^3.1.14"
+  },
+  "dependencies": {
+    "file-loader": "^3.0.1",
+    "font-awesome": "^4.7.0",
+    "font-awesome-loader": "^1.0.2",
+    "font-awesome-sass": "^4.7.0",
+    "jquery": "^3.3.1",
+    "node-sass": "^4.11.0",
+    "sass-loader": "^7.1.0",
+    "slick-carousel": "^1.8.1",
+    "url-loader": "^1.1.2"
+  }
+}
