@@ -4,8 +4,38 @@
 }
 
 @mixin placeholder {
-  &::-webkit-input-placeholder {@content};
-  &::-moz-placeholder {@content};
-  &::-moz-placeholder { @content; }
-  &:-ms-input-placeholder { @content; }
+  &:-webkit-input-placeholder {@content};
+  &:-moz-placeholder { @content; };
+  &:-ms-input-placeholder { @content; };
+}
+
+@mixin rotate($value) {
+  -moz-transform: rotate($value); /* Для Firefox */
+  -ms-transform: rotate($value); /* Для IE */
+  -webkit-transform: rotate($value); /* Для Safari, Chrome, iOS */
+  -o-transform: rotate($value); /* Для Opera */
+  transform: rotate($value);
+}
+
+@mixin screenSize($screen) {
+
+  @if $screen == phone {
+    @media only screen and (max-width: 600px) {
+      @content
+    }
+  };
+
+  @if $screen == tab-portrait {
+    @media only screen and (max-width: 900px) {
+      @content
+    }
+    
+  };
+
+  @if $screen == tab-landscape {
+    @media only screen and (max-width: 1200px) {
+      @content
+    }
+  };
+
 }

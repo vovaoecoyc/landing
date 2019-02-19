@@ -39,6 +39,13 @@ $footerBackground: #2d312f;
   padding: 0;
 }
 
+%hamburgerMenuItem {
+  display: block;
+  width: 100%;
+  height: 10px;
+  background-color: $colorText;
+}
+
 body {
   margin: 0;
 }
@@ -46,9 +53,10 @@ body {
 section {
   width: 100%;
   background-color: $colorWhite;
+  position: relative;
 }
 
-body > section:nth-child(even) {
+section:nth-child(even) {
   background-color: #f2f9fe;
 }
 
@@ -56,13 +64,39 @@ header {
   background-color: $colorWhite;
 }
 
+.Header, .Block-first, .Block-second, .Block-about-us, .Block-subscribe, .Block-third, .Block-gallery {
+  width: $mainWidth;
+  margin: auto;
+
+  @include screenSize(tab-landscape) {
+    width: 870px;
+  }
+
+  @include screenSize(tab-portrait) {
+    width: 570px;
+  }
+}
+
 .Header {
   @extend %flex-row;
-  margin: auto;
   justify-content: space-between;
   align-items: center;
-  width: $mainWidth;
   height: 110px;
+
+  @include screenSize(tab-landscape) {
+    width: 870px;
+  }
+
+  @include screenSize(tab-portrait) {
+    width: 570px;
+    flex-direction: column;
+    margin: auto;
+    padding-top: 30px;
+  }
+
+  @include screenSize(phone) {
+    display: none;
+  }
 }
 
 .logo {
@@ -130,6 +164,10 @@ header {
     margin-left: 15px;
     color: $colorText;
     font-size: 18px;
+
+    @include screenSize(tab-landscape) {
+      font-size: 16px;
+    }
   }
 }
 
@@ -171,11 +209,10 @@ header {
       padding: 45px 0 55px;
     }
   }
-}
 
-.Block-first, .Block-second, .Block-gallery, .Block-about-us, .Block-subscribe {
-  width: $mainWidth;
-  margin: auto;
+  @include screenSize(tab-landscape) {
+    display: none;
+  }
 }
 
 .Block-first {
@@ -183,7 +220,15 @@ header {
 
   & > :not(:first-child) {
     margin-top: 125px;
+
+    @include screenSize(tab-portrait) {
+      margin-top: 20px;
+    }
   }
+
+  @include screenSize(tab-portrait) {
+    padding-top: 30px;
+  };
 }
 
 .Information-header {
@@ -196,23 +241,44 @@ header {
   &__title {
     font-size: 36px;
     font-weight: bold;
+
+    @include screenSize(tab-portrait) {
+      font-size: 26px;
+    }
   }
 
   &__text {
     margin: 32px 0 0;
     font-size: 16px;
     line-height: 24px;
+
+    @include screenSize(tab-portrait) {
+      margin-top: 10px;
+    }
+  }
+
+  @include screenSize(tab-portrait) {
+    width: 100%;
   }
 }
 
 .Information-content {
   @extend %flex-row;
   padding-bottom: 150px;
+
+  @include screenSize(tab-portrait) {
+    padding-bottom: 50px;
+  }
 }
 
 .Information-left-block {
   width: 355px;
   padding: 0 0 0 30px;
+
+  @include screenSize(tab-portrait) {
+    width: 255px;
+    padding: 0 0 0 10px;
+  }
 }
 
 .Side-menu {
@@ -230,11 +296,23 @@ header {
     &_current {
       border-right: 10px solid #5dca88;
       padding-left: 0;
+
+      @include screenSize(tab-portrait) {
+        border-right: 5px solid #5dca88;
+      }
+    }
+
+    @include screenSize(tab-portrait) {
+      font-size: 16px;
     }
   }
 
   &__item:not(:first-child) {
     margin-top: 73px;
+
+    @include screenSize(tab-portrait) {
+      margin-top: 43px;
+    }
   }
 
   &__item-text {
@@ -244,6 +322,10 @@ header {
 
     &_current {
       opacity: 1;
+    }
+
+    @include screenSize(tab-portrait) {
+      margin-left: 10px;
     }
   }
 }
@@ -256,12 +338,24 @@ header {
     width: 208px;
     height: 175px;
     margin: 45px auto 80px;
+
+    @include screenSize(tab-portrait) {
+      margin: 32px auto 32px;
+    }
   }
 
   &__title {
     font-size: 24px;
     margin: 82px 0 32px;
     padding-left: 143px;
+
+    @include screenSize(tab-landscape) {
+      padding-left: 30px;
+    }
+
+    @include screenSize(tab-portrait) {
+      margin: 32px 0 32px;
+    }
   }
 
   &__text {
@@ -269,12 +363,29 @@ header {
     line-height: 24px;
     opacity: 0.6;
     padding-left: 143px;
+    
+    @include screenSize(tab-landscape) {
+      padding-left: 30px;
+    }
+  }
+
+  @include screenSize(tab-landscape) {
+    $mainWidth: 870px;
+    width: calc(#{$mainWidth} - 355px);
+  }
+
+  @include screenSize(tab-portrait) {
+    width: 100%;
   }
 }
 
 .Block-second {
   padding: 78px 0 78px;
   @extend %flex-row;
+
+  @include screenSize(tab-portrait) {
+    padding: 28px 0 28px;
+  }
 }
 
 .Block-description {
@@ -285,6 +396,10 @@ header {
   &__title {
     font-size: 36px;
     color: #5dca88;
+
+    @include screenSize(tab-portrait) {
+      font-size: 22px
+    }
   }
 
   &__line {
@@ -298,6 +413,10 @@ header {
   &__sub-title {
     font-size: 36px;
     color: $colorText;
+
+    @include screenSize(tab-portrait) {
+      font-size: 22px
+    }
   }
 
   &__text {
@@ -305,6 +424,10 @@ header {
     font-size: 16px;
     color: $colorText;
     line-height: 24px;
+
+    @include screenSize(tab-portrait) {
+      font-size: 14px
+    }
   }
 
   &__button {
@@ -316,16 +439,27 @@ header {
 
 .Block-second-right {
   margin: auto;
+
+  @include screenSize(tab-portrait) {
+    margin-left: 20px;
+  }
 }
 
 .Block-gallery {
+  @extend %flex-column;
+  position: relative;
+  align-items: center;
   padding: 100px 0 0;
+  overflow: hidden;
+
+  @include screenSize(tab-portrait) {
+    padding: 50px 0 0;
+  }
 }
 
 .Block-gallery-content {
-  @extend %flex-column;
   position: relative;
-  margin: auto;
+  width: 100%;
   padding: 85px 0 125px 30px;
 
   &__item {
@@ -345,31 +479,55 @@ header {
   &__item-image {
     margin: auto;
   }
-}
 
-.Prev-arrow, .Next-arrow {
-  position: absolute;
-  top: 285px;
-  z-index: 1;
-  cursor: pointer;
+  &__navigation {
+    @extend %flex-row;
+    justify-content: space-between;
+    width: 100%;
+    position: absolute;
+    top: 570px;
+    z-index: 1;
+    cursor: pointer;
+  }
+
+  .slick-slide {
+    display: flex;
+    justify-content: center;
+  }
+
+  @include screenSize(tab-portrait) {
+    padding: 20px 0 50px 0;
+  }
 }
 
 .Prev-arrow {
   left: -50px;
+
+  @include screenSize(tab-landscape) {
+    left: -100px
+  }
 }
 
 .Next-arrow {
   right: -50px;
+
+  @include screenSize(tab-landscape) {
+    right: -100px;
+  }
 }
 
 .Block-third {
   @extend %flex-row;
-  width: $mainWidth;
-  margin: auto;
   padding: 80px 0;
 
   &__description {
     margin: auto;
+
+    @include screenSize(tab-landscape) {
+      margin: 0 0 0 10px;
+      width: 380px;
+      padding-top: 70px;
+    }
   }
 }
 
@@ -386,6 +544,10 @@ header {
   &__title {
     font-size: 36px;
     line-height: 24px;
+
+    @include screenSize(tab-portrait) {
+      font-size: 22px;
+    }
   }
 
   &__image {
@@ -395,7 +557,12 @@ header {
   &__quote {
     font-size: 24px;
     line-height: 24px;
+    text-align: center;
     quotes: "\201c", "\201d";
+
+    @include screenSize(tab-portrait) {
+      font-size: 16px;
+    }
   }
 
   &__publisher {
@@ -403,6 +570,10 @@ header {
     line-height: 24px;
     color: #5dca88;
     margin: 28px 0 40px;
+
+    @include screenSize(tab-portrait) {
+      font-size: 20px;
+    }
   }
 
   &__navigation {
@@ -428,12 +599,24 @@ header {
         margin-left: 10px;
       }
     }
+
+    @include screenSize(tab-portrait) {
+      padding-bottom: 50px;
+    }
+  }
+
+  @include screenSize(tab-portrait) {
+    padding: 50px 0 0 0;
   }
 }
 
 .Block-subscribe {
   @extend %flex-column;
   padding: 80px 0 120px 0;
+
+  @include screenSize(tab-portrait) {
+    padding: 50px 0 70px 0;
+  }
 }
 
 .Block-subscribe-header {
@@ -447,6 +630,10 @@ header {
     line-height: 24px;
     color: #8c9494;
     margin-left: 20px;
+
+    @include screenSize(tab-portrait) {
+      font-size: 22px;
+    }
   }
 }
 
@@ -464,6 +651,15 @@ header {
 
     &:hover {
       @include hoverChangeStyle($colorText, #5dca88);
+    }
+
+    @include screenSize(tab-landscape) {
+      right: 38px;
+    }
+
+    @include screenSize(tab-portrait) {
+      right: 0;
+      font-size: 16px;
     }
   }
 }
@@ -506,3 +702,103 @@ header {
     margin-left: 20px;
   }
 }
+
+.Hide {
+  display: none;
+}
+
+/* Mobile menu */
+.Top-menu-mobile {
+  display: none;
+  width: 75px;
+  margin: 30px auto 0;
+  cursor: pointer;
+
+  &__item {
+    @extend %hamburgerMenuItem;
+  }
+
+  &::before {
+    @extend %hamburgerMenuItem;
+    content: '';
+    margin-bottom: 15px;
+  }
+
+  &::after {
+    @extend %hamburgerMenuItem;
+    content: '';
+    margin-top: 15px;
+  }
+
+  @include screenSize(phone) {
+    display: block;
+  }
+}
+
+.Menu-mobile-content {
+  @extend %resetUlStyles;
+  @extend %flex-column;
+  position: absolute;
+  top: 0;
+  right: 0;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  width: 100%;
+  height: 500px;
+  background-color: $colorWhite;
+  z-index: 2;
+
+  &__item {
+    font-size: 36px;
+    font-weight: bold;
+    color: $colorText;
+    position: relative;
+
+    a {
+      font-size: inherit;
+      color: inherit;
+      text-decoration: none;
+    }
+
+    &:hover {
+      opacity: 0.6;
+    }
+  }
+
+  & > :not(:first-child) {
+    margin-top: 40px;
+  }
+
+  &__close-icon {
+    width: 55px;
+    height: 55px;
+    display: block;
+    cursor: pointer;
+
+    &::before {
+      $degree: 45deg;
+      position: absolute;
+      top: 80px;
+      display: block;
+      width: 55px;
+      content: '';
+      height: 10px;
+      @include rotate($degree);
+      background-color: $colorText;
+    }
+
+    &::after {
+      $degree: -45deg;
+      position: absolute;
+      top: 80px;
+      display: block;
+      width: 55px;
+      content: '';
+      height: 10px;
+      @include rotate($degree);
+      background-color: $colorText;
+    }
+  }
+}
+/* ./Mobile menu */
