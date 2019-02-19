@@ -75,6 +75,10 @@ header {
   @include screenSize(tab-portrait) {
     width: 570px;
   }
+
+  @include screenSize(phone) {
+    width: 300px;
+  }
 }
 
 .Header {
@@ -90,6 +94,7 @@ header {
   @include screenSize(tab-portrait) {
     width: 570px;
     flex-direction: column;
+    justify-content: space-evenly;
     margin: auto;
     padding-top: 30px;
   }
@@ -229,6 +234,10 @@ header {
   @include screenSize(tab-portrait) {
     padding-top: 30px;
   };
+
+  @include screenSize(phone) {
+    display: none;
+  }
 }
 
 .Information-header {
@@ -245,6 +254,10 @@ header {
     @include screenSize(tab-portrait) {
       font-size: 26px;
     }
+
+    @include screenSize(phone) {
+      font-size: 22px;
+    }
   }
 
   &__text {
@@ -254,6 +267,10 @@ header {
 
     @include screenSize(tab-portrait) {
       margin-top: 10px;
+    }
+
+    @include screenSize(phone) {
+      font-size: 14px;
     }
   }
 
@@ -408,6 +425,10 @@ header {
     width: 105px;
     height: 2px;
     background-color: #949c9c;
+
+    @include screenSize(phone) {
+      margin: 10px 0 25px;
+    }
   }
 
   &__sub-title {
@@ -428,12 +449,26 @@ header {
     @include screenSize(tab-portrait) {
       font-size: 14px
     }
+
+    @include screenSize(phone) {
+      margin-top: 10px;
+    }
   }
 
   &__button {
     margin-top: 80px;
     color: #636c6c;
     border-color: #aab2b5;
+
+    @include screenSize(phone) {
+      margin-top: 30px;
+    }
+  }
+
+  @include screenSize(phone) {
+    padding-top: 0;
+    align-items: center;
+    text-align: center;
   }
 }
 
@@ -442,6 +477,10 @@ header {
 
   @include screenSize(tab-portrait) {
     margin-left: 20px;
+  }
+
+  @include screenSize(phone) {
+    display: none;
   }
 }
 
@@ -454,6 +493,10 @@ header {
 
   @include screenSize(tab-portrait) {
     padding: 50px 0 0;
+  }
+
+  @include screenSize(tab-portrait) {
+    padding: 20px 0 0;
   }
 }
 
@@ -498,6 +541,10 @@ header {
   @include screenSize(tab-portrait) {
     padding: 20px 0 50px 0;
   }
+
+  @include screenSize(tab-portrait) {
+    padding: 20px 0 20px 0;
+  }
 }
 
 .Prev-arrow {
@@ -505,6 +552,12 @@ header {
 
   @include screenSize(tab-landscape) {
     left: -100px
+  }
+
+  @include screenSize(phone) {
+    img {
+      width: 20px;
+    }
   }
 }
 
@@ -514,6 +567,12 @@ header {
   @include screenSize(tab-landscape) {
     right: -100px;
   }
+
+  @include screenSize(phone) {
+    img {
+      width: 20px;
+    }
+  }  
 }
 
 .Block-third {
@@ -527,6 +586,18 @@ header {
       margin: 0 0 0 10px;
       width: 380px;
       padding-top: 70px;
+    }
+
+    @include screenSize(phone) {
+      padding-top: 0;
+    }
+  }
+
+  @include screenSize(phone) {
+    padding: 28px 0;
+
+    img {
+      display: none;
     }
   }
 }
@@ -617,6 +688,10 @@ header {
   @include screenSize(tab-portrait) {
     padding: 50px 0 70px 0;
   }
+
+  @include screenSize(phone) {
+    padding: 20px 0 20px 0;
+  }
 }
 
 .Block-subscribe-header {
@@ -634,6 +709,10 @@ header {
     @include screenSize(tab-portrait) {
       font-size: 22px;
     }
+  }
+
+  @include screenSize(phone) {
+    padding-bottom: 20px;
   }
 }
 
@@ -661,6 +740,12 @@ header {
       right: 0;
       font-size: 16px;
     }
+
+    @include screenSize(phone) {
+      height: 42px;
+      width: 100px;
+      font-size: 12px;
+    }
   }
 }
 
@@ -676,6 +761,10 @@ header {
     font-size: 24px;
     line-height: 24px;
   }
+
+  @include screenSize(phone) {
+    padding: 30px 0;
+  }
 }
 
 .Footer-icons {
@@ -685,6 +774,10 @@ header {
 
     & > :not(:first-child) {
       margin-left: 15px;
+    }
+
+    @include screenSize(phone) {
+      margin: 25px 0;
     }
 }
 
@@ -696,10 +789,18 @@ header {
     color: #8c9494;
     font-size: 14px;
     line-height: 24px;
+
+    @include screenSize(phone) {
+      font-size: 12px;
+    }
   }
 
   & > :not(:first-child) {
     margin-left: 20px;
+
+    @include screenSize(phone) {
+      margin-left: 10px;
+    }
   }
 }
 
@@ -732,6 +833,7 @@ header {
 
   @include screenSize(phone) {
     display: block;
+    margin-bottom: 30px;
   }
 }
 

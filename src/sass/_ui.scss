@@ -33,6 +33,10 @@ $subscribeButtonColor: #5dca88;
     font-size: 14px;
     line-height: 24px;
   }
+
+  @include screenSize(phone) {
+    line-height: 40px;
+  }
 }
 
 .Button-subscribe {
